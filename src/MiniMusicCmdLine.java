@@ -4,16 +4,18 @@ public class MiniMusicCmdLine {
     
     public static void main(String[] args) {
         MiniMusicCmdLine mini=new MiniMusicCmdLine();
-        if(args.length<2){
-            System.out.println("Don't forget the instrument and note args");
-        }else{
-            int instrument=Integer.parseInt(args[0]);
-            int note=Integer.parseInt(args[1]);
-            mini.play(instrument, note);
-        }
+//        if(args.length<2){
+//            System.out.println("Don't forget the instrument and note args");
+//        }else{
+//            int instrument=Integer.parseInt(args[0]);
+//            int note=Integer.parseInt(args[1]);
+//            mini.play(instrument, note);
+//        }
+        
+         mini.play(102, 70);
     }
     
-    public void play(int instument, int note){
+    public void play(int instrument, int note){
         try{
             Sequencer player=MidiSystem.getSequencer();
             player.open();
@@ -22,10 +24,9 @@ public class MiniMusicCmdLine {
             
             Track track=seq.createTrack();
             
-            MidiEvent event=null;
             
             ShortMessage first=new ShortMessage();
-            first.setMessage(192, 1, instument, 0);
+            first.setMessage(192, 1, instrument, 0);
             MidiEvent changeInstrument=new MidiEvent(first, 1);
             track.add(changeInstrument);
             
