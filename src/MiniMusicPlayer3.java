@@ -38,8 +38,8 @@ public class MiniMusicPlayer3 {
             for(int i=0; i<60; i+=4){
                 
                 r=(int)((Math.random()*50)+1);
-                track.add(makeEvent(144, 1, r, 100, i));
-                track.add(makeEvent(176, 1, 127, 0, i)); //noteOn
+                track.add(makeEvent(144, 1, r, 100, i));//noteOn
+                track.add(makeEvent(176, 1, 127, 0, i));  //controllerEvent
                 track.add(makeEvent(128, 1, r, 100, i+2)); //noteOff
             }
             
